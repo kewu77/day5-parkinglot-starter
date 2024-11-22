@@ -28,7 +28,7 @@ public class ParkingLot {
             capacity --;
             return ticket;
         }else{
-            throw new ParkingException(NO_CAPACITY_MESSAGE);
+            throw new NoAvailablePositionException();
         }
     }
 
@@ -37,7 +37,7 @@ public class ParkingLot {
         if(resultCar != null)
             capacity ++;
         else
-            throw new ParkingException(ERROR_TICKET_MESSAGE);
+            throw new UnrecognizedParkingTicketException();
         return resultCar;
     }
 

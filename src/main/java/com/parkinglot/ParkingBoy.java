@@ -14,17 +14,17 @@ public class ParkingBoy {
             this.parkingLots.add(parkingLot);
     }
 
-    public Ticket park (Car car) throws ParkingException{
+    public Ticket park (Car car) throws NoAvailablePositionException{
         if(parkingLots.size() == 0)
             return null;
         Optional<ParkingLot> availableParkingLot = parkingLots.stream().filter(ParkingLot::checkParkingCapacity).findFirst();
         if(availableParkingLot.isPresent())
             return availableParkingLot.get().park(car);
         else
-            throw new ParkingException(ParkingLot.NO_CAPACITY_MESSAGE);
+            throw new NoAvailablePositionException();
     }
 
-    public Car fetch(Ticket ticket) throws ParkingException{
+    public Car fetch(Ticket ticket) throws UnrecognizedParkingTicketException{
         if(parkingLots.size() == 0)
             return null;
         Optional<ParkingLot> availableParkingLot = parkingLots.stream().filter(parkingLot -> parkingLot.getId().equals(ticket.getParkingLotID())).findFirst();
@@ -32,7 +32,7 @@ public class ParkingBoy {
             return availableParkingLot.get().fetch(ticket);
         }
         else {
-            throw new ParkingException(ParkingLot.ERROR_TICKET_MESSAGE);
+            throw new UnrecognizedParkingTicketException();
         }
 
     }

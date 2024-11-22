@@ -60,7 +60,7 @@ public class parkingBoyTest {
         Ticket wrongTicket = new Ticket();
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingBoy.fetch(wrongTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+        assertThrows(UnrecognizedParkingTicketException.class,() -> parkingBoy.fetch(wrongTicket), UnrecognizedParkingTicketException.ERROR_TICKET_MESSAGE);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class parkingBoyTest {
         parkingBoy.fetch(firstTicket);
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingBoy.fetch(firstTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+        assertThrows(UnrecognizedParkingTicketException.class,() -> parkingBoy.fetch(firstTicket), UnrecognizedParkingTicketException.ERROR_TICKET_MESSAGE);
     }
 
     @Test
@@ -89,7 +89,7 @@ public class parkingBoyTest {
 
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingBoy.park(lastCar), ParkingLot.NO_CAPACITY_MESSAGE);
+        assertThrows(NoAvailablePositionException.class,() -> parkingBoy.park(lastCar), NoAvailablePositionException.NO_CAPACITY_MESSAGE);
 
     }
 
@@ -163,7 +163,7 @@ public class parkingBoyTest {
         Ticket wrongTicket = new Ticket();
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingBoy.fetch(wrongTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+        assertThrows(UnrecognizedParkingTicketException.class,() -> parkingBoy.fetch(wrongTicket), UnrecognizedParkingTicketException.ERROR_TICKET_MESSAGE);
     }
 
     @Test
@@ -181,7 +181,7 @@ public class parkingBoyTest {
         parkingBoy.fetch(firstTicket);
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingBoy.fetch(firstTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+        assertThrows(UnrecognizedParkingTicketException.class,() -> parkingBoy.fetch(firstTicket), UnrecognizedParkingTicketException.ERROR_TICKET_MESSAGE);
     }
 
     @Test
@@ -197,7 +197,7 @@ public class parkingBoyTest {
         Car lastCar = new Car();
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingBoy.park(lastCar), ParkingLot.NO_CAPACITY_MESSAGE);
+        assertThrows(NoAvailablePositionException.class,() -> parkingBoy.park(lastCar), NoAvailablePositionException.NO_CAPACITY_MESSAGE);
 
     }
 }

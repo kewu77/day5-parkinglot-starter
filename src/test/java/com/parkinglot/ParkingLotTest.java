@@ -67,7 +67,7 @@ public class ParkingLotTest {
         Ticket wrongTicket = new Ticket();
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingLot.fetch(wrongTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+        assertThrows(UnrecognizedParkingTicketException.class,() -> parkingLot.fetch(wrongTicket), ParkingLot.ERROR_TICKET_MESSAGE);
 
     }
 
@@ -82,7 +82,7 @@ public class ParkingLotTest {
         parkingLot.fetch(firstTicket);
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingLot.fetch(firstTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+        assertThrows(UnrecognizedParkingTicketException.class,() -> parkingLot.fetch(firstTicket), ParkingLot.ERROR_TICKET_MESSAGE);
     }
 
     @Test
@@ -95,7 +95,7 @@ public class ParkingLotTest {
 
         //When
         //Then
-        assertThrows(ParkingException.class,() -> parkingLot.park(lastCar), ParkingLot.NO_CAPACITY_MESSAGE);
+        assertThrows(NoAvailablePositionException.class,() -> parkingLot.park(lastCar), ParkingLot.NO_CAPACITY_MESSAGE);
 
     }
 
