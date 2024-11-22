@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class ParkingLot {
     public static final int MAX_CAPACITY = 10;
+    public static final String ERROR_TICKET_MESSAGE = "Unrecognized parking ticket";
 
     private Map<Ticket, Car> ticketToCar = new HashMap<>();
 
@@ -29,6 +30,8 @@ public class ParkingLot {
         Car resultCar = ticketToCar.remove(ticket);
         if(resultCar != null)
             capacity ++;
+        else
+            throw new ParkingException(ERROR_TICKET_MESSAGE);
         return resultCar;
     }
 }
