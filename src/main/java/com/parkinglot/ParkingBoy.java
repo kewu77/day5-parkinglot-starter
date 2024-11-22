@@ -6,10 +6,9 @@ public class ParkingBoy {
         this.parkingLot = parkingLot;
     }
 
-    public Ticket park(Car car) {
-        if(parkingLot != null)
-           return parkingLot.park(car);
-        else
+    public Ticket park (Car car) throws ParkingException{
+        if(parkingLot == null)
             return null;
+        return parkingLot.park(car);
     }
 }
