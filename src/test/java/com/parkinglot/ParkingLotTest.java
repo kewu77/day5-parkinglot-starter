@@ -45,7 +45,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void should_return_the_car_when_fetch_given_a_wrong_ticket(){
+    public void should_return_nothing_when_fetch_given_a_wrong_ticket(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
         Car car = new Car();
@@ -55,5 +55,20 @@ public class ParkingLotTest {
         Car fetchedCar = parkingLot.fetch(wrongTicket);
         //Then
         assertNull(fetchedCar);
+    }
+
+    @Test
+    public void should_return_nothing_when_fetch_given_a_used_ticket(){
+        //Given
+        ParkingLot parkingLot = new ParkingLot();
+        Car firstCar = new Car();
+        Car SecondCar = new Car();
+        Ticket firstTicket = parkingLot.park(firstCar);
+        Ticket SecondTicket = parkingLot.park(SecondCar);
+        //When
+        Car fetchedFirstCar = parkingLot.fetch(firstTicket);
+        Car fetchedSecondCar = parkingLot.fetch(firstTicket);
+        //Then
+        assertNull(fetchedSecondCar);
     }
 }
