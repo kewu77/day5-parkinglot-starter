@@ -49,4 +49,18 @@ public class parkingBoyTest {
         assertEquals(SecondCar,fetchedSecondCar);
     }
 
+
+    @Test
+    public void should_return_error_message_when_fetch_given_a_wrong_ticket(){
+        //Given
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        Car car = new Car();
+        parkingBoy.park(car);
+        Ticket wrongTicket = new Ticket();
+        //When
+        //Then
+        assertThrows(ParkingException.class,() -> parkingBoy.fetch(wrongTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+
+    }
 }
