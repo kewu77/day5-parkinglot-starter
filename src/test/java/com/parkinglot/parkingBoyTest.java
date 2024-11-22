@@ -183,4 +183,21 @@ public class parkingBoyTest {
         //Then
         assertThrows(ParkingException.class,() -> parkingBoy.fetch(firstTicket), ParkingLot.ERROR_TICKET_MESSAGE);
     }
+
+    @Test
+    public void should_return_error_message_when_parking_lot_full_given_a_car_and_two_parking_lot(){
+        //Given
+        ParkingLot firstParkingLot = new ParkingLot();
+        ParkingLot secondParkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.manage(firstParkingLot);
+        parkingBoy.manage(secondParkingLot);
+        for (int i = 0; i < ParkingLot.MAX_CAPACITY * 2; i++)
+            parkingBoy.park(new Car());
+        Car lastCar = new Car();
+        //When
+        //Then
+        assertThrows(ParkingException.class,() -> parkingBoy.park(lastCar), ParkingLot.NO_CAPACITY_MESSAGE);
+
+    }
 }
