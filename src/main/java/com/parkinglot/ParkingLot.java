@@ -10,8 +10,12 @@ public class ParkingLot {
 
     private Integer capacity = MAX_CAPACITY;
 
+    public boolean checkParkingCapacity(){
+        return capacity > 0;
+    }
+
     public Ticket park(Car car) {
-        if (capacity > 0) {
+        if (checkParkingCapacity()) {
             Ticket ticket = new Ticket();
             ticketToCar.put(ticket, car);
             capacity --;
