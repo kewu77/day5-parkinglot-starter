@@ -111,6 +111,21 @@ public class parkingBoyTest {
         assertEquals(secondParkingLot.getId(),ticket.getParkingLotID());
     }
 
+    @Test
+    public void should_return_second_parking_lot_ticket_when_park_given_a_car_and_two_parking_lot(){
+        //Given
+        ParkingLot firstParkingLot = new ParkingLot();
+        ParkingLot secondParkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.manage(firstParkingLot);
+        parkingBoy.manage(secondParkingLot);
+        Car car = new Car();
+        //When
+        Ticket ticket = parkingBoy.park(car);
+        //Then
+        assertNotNull(ticket);
+        assertEquals(firstParkingLot.getId(),ticket.getParkingLotID());
+    }
 
 
 
