@@ -67,13 +67,9 @@ public class ParkingLotTest {
         parkingLot.park(car);
         Ticket wrongTicket = new Ticket();
         //When
-        try {
-            parkingLot.fetch(wrongTicket);
-        }catch (ParkingException exception){
-            System.out.println(exception.getMessage());
-        }
         //Then
-        assertThat(systemOut()).contains("Unrecognized parking ticket");
+        assertThrows(ParkingException.class,() -> parkingLot.fetch(wrongTicket), ParkingLot.ERROR_TICKET_MESSAGE);
+
     }
 
     @Test
@@ -84,16 +80,10 @@ public class ParkingLotTest {
         Car SecondCar = new Car();
         Ticket firstTicket = parkingLot.park(firstCar);
         parkingLot.park(SecondCar);
+        parkingLot.fetch(firstTicket);
         //When
-        try {
-            parkingLot.fetch(firstTicket);
-            parkingLot.fetch(firstTicket);
-        }catch (ParkingException exception){
-            System.out.println(exception.getMessage());
-        }
-
         //Then
-        assertThat(systemOut()).contains("Unrecognized parking ticket");
+        assertThrows(ParkingException.class,() -> parkingLot.fetch(firstTicket), ParkingLot.ERROR_TICKET_MESSAGE);
     }
 
     @Test
@@ -105,14 +95,9 @@ public class ParkingLotTest {
         Car lastCar = new Car();
 
         //When
-        try {
-            parkingLot.park(lastCar);
-        }catch (ParkingException exception){
-            System.out.println(exception.getMessage());
-        }
-
         //Then
-        assertThat(systemOut()).contains("No available position");
+        assertThrows(ParkingException.class,() -> parkingLot.park(lastCar), ParkingLot.NO_CAPACITY_MESSAGE);
+
     }
 
     private String systemOut() {
