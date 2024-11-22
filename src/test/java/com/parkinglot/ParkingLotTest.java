@@ -58,33 +58,6 @@ public class ParkingLotTest {
         assertEquals(SecondCar,fetchedSecondCar);
     }
 
-    @Test
-    public void should_return_nothing_when_fetch_given_a_wrong_ticket(){
-        //Given
-        ParkingLot parkingLot = new ParkingLot();
-        Car car = new Car();
-        parkingLot.park(car);
-        Ticket wrongTicket = new Ticket();
-        //When
-        Car fetchedCar = parkingLot.fetch(wrongTicket);
-        //Then
-        assertNull(fetchedCar);
-    }
-
-    @Test
-    public void should_return_nothing_when_fetch_given_a_used_ticket(){
-        //Given
-        ParkingLot parkingLot = new ParkingLot();
-        Car firstCar = new Car();
-        Car SecondCar = new Car();
-        Ticket firstTicket = parkingLot.park(firstCar);
-        parkingLot.park(SecondCar);
-        //When
-        parkingLot.fetch(firstTicket);
-        Car fetchedSecondCar = parkingLot.fetch(firstTicket);
-        //Then
-        assertNull(fetchedSecondCar);
-    }
 
     @Test
     public void should_return_nothing_when_parking_lot_full_given_a_car(){
@@ -113,6 +86,26 @@ public class ParkingLotTest {
         }catch (ParkingException exception){
             System.out.println(exception.getMessage());
         }
+        //Then
+        assertThat(systemOut()).contains("Unrecognized parking ticket");
+    }
+
+    @Test
+    public void should_return_error_message_when_fetch_given_a_used_ticket(){
+        //Given
+        ParkingLot parkingLot = new ParkingLot();
+        Car firstCar = new Car();
+        Car SecondCar = new Car();
+        Ticket firstTicket = parkingLot.park(firstCar);
+        parkingLot.park(SecondCar);
+        //When
+        try {
+            parkingLot.fetch(firstTicket);
+            Car fetchedSecondCar = parkingLot.fetch(firstTicket);
+        }catch (ParkingException exception){
+            System.out.println(exception.getMessage());
+        }
+
         //Then
         assertThat(systemOut()).contains("Unrecognized parking ticket");
     }
