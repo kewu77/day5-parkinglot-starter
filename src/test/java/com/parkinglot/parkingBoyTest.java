@@ -127,6 +127,26 @@ public class parkingBoyTest {
         assertEquals(firstParkingLot.getId(),ticket.getParkingLotID());
     }
 
-
+    @Test
+    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_first_full_no_full_second(){
+        //Given
+        ParkingLot firstParkingLot = new ParkingLot();
+        ParkingLot secondParkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy();
+        parkingBoy.manage(firstParkingLot);
+        parkingBoy.manage(secondParkingLot);
+        Car firstCar = new Car();
+        Ticket firstTicket = parkingBoy.park(firstCar);
+        for (int i = 0; i < ParkingLot.MAX_CAPACITY - 1; i++)
+            parkingBoy.park(new Car());
+        Car secondCar = new Car();
+        Ticket secondTicket = parkingBoy.park(secondCar);
+        //When
+        Car fetchedFirstCar = parkingBoy.fetch(firstTicket);
+        Car fetchedSecondCar = parkingBoy.fetch(secondTicket);
+        //Then
+        assertEquals(firstCar,fetchedFirstCar);
+        assertEquals(secondCar,fetchedSecondCar);
+    }
 
 }
