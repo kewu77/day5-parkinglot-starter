@@ -60,20 +60,6 @@ public class ParkingLotTest {
 
 
     @Test
-    public void should_return_nothing_when_parking_lot_full_given_a_car(){
-        //Given
-        ParkingLot parkingLot = new ParkingLot();
-        for (int i = 0; i < ParkingLot.MAX_CAPACITY; i++)
-            parkingLot.park(new Car());
-        Car lastCar = new Car();
-
-        //When
-        Ticket firstTicket = parkingLot.park(lastCar);
-        //Then
-        assertNull(firstTicket);
-    }
-
-    @Test
     public void should_return_error_message_when_fetch_given_a_wrong_ticket(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
@@ -82,7 +68,7 @@ public class ParkingLotTest {
         Ticket wrongTicket = new Ticket();
         //When
         try {
-            Car fetchedCar = parkingLot.fetch(wrongTicket);
+            parkingLot.fetch(wrongTicket);
         }catch (ParkingException exception){
             System.out.println(exception.getMessage());
         }
@@ -101,13 +87,32 @@ public class ParkingLotTest {
         //When
         try {
             parkingLot.fetch(firstTicket);
-            Car fetchedSecondCar = parkingLot.fetch(firstTicket);
+            parkingLot.fetch(firstTicket);
         }catch (ParkingException exception){
             System.out.println(exception.getMessage());
         }
 
         //Then
         assertThat(systemOut()).contains("Unrecognized parking ticket");
+    }
+
+    @Test
+    public void should_return_error_message_when_parking_lot_full_given_a_car(){
+        //Given
+        ParkingLot parkingLot = new ParkingLot();
+        for (int i = 0; i < ParkingLot.MAX_CAPACITY; i++)
+            parkingLot.park(new Car());
+        Car lastCar = new Car();
+
+        //When
+        try {
+            parkingLot.park(lastCar);
+        }catch (ParkingException exception){
+            System.out.println(exception.getMessage());
+        }
+
+        //Then
+        assertThat(systemOut()).contains("No available position");
     }
 
     private String systemOut() {
