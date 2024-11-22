@@ -79,10 +79,8 @@ public class ParkingLotTest {
     public void should_return_nothing_when_parking_lot_full_given_a_car(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        List<Car> cars = new ArrayList<>();
         for (int i = 0; i < ParkingLot.MAX_CAPACITY; i++)
-            cars.add(new Car());
-        cars.forEach(parkingLot::park);
+            parkingLot.park(new Car());
         Car lastCar = new Car();
 
         //When

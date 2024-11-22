@@ -22,6 +22,9 @@ public class ParkingLot {
     }
 
     public Car fetch(Ticket ticket) {
-        return ticketToCar.remove(ticket);
+        Car resultCar = ticketToCar.remove(ticket);
+        if(resultCar != null)
+            capacity ++;
+        return resultCar;
     }
 }
