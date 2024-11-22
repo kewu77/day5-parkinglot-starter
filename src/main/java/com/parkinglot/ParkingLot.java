@@ -1,12 +1,16 @@
 package com.parkinglot;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class ParkingLot {
     public static final int MAX_CAPACITY = 10;
     public static final String ERROR_TICKET_MESSAGE = "Unrecognized parking ticket";
     public static final String NO_CAPACITY_MESSAGE = "No available position";
+
+    private Long id = System.currentTimeMillis() + new Random().nextLong();
 
     private Map<Ticket, Car> ticketToCar = new HashMap<>();
 
@@ -19,6 +23,7 @@ public class ParkingLot {
     public Ticket park(Car car) {
         if (checkParkingCapacity()) {
             Ticket ticket = new Ticket();
+            ticket.setParkingLotID(id);
             ticketToCar.put(ticket, car);
             capacity --;
             return ticket;
@@ -34,5 +39,9 @@ public class ParkingLot {
         else
             throw new ParkingException(ERROR_TICKET_MESSAGE);
         return resultCar;
+    }
+
+    public Long getId() {
+        return id;
     }
 }
