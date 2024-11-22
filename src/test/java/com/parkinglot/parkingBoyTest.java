@@ -20,7 +20,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_the_car_when_fetch_given_a_ticket(){
+    public void should_return_the_car_when_fetch_given_a_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -33,7 +33,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_two_car_when_park_given_two_ticket(){
+    public void should_return_two_car_when_park_given_two_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -51,7 +51,7 @@ public class parkingBoyTest {
 
 
     @Test
-    public void should_return_error_message_when_fetch_given_a_wrong_ticket(){
+    public void should_return_error_message_when_fetch_given_a_wrong_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -64,7 +64,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_error_message_when_fetch_given_a_used_ticket(){
+    public void should_return_error_message_when_fetch_given_a_used_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
@@ -79,7 +79,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_error_message_when_parking_lot_full_given_a_car(){
+    public void should_return_error_message_when_parking_lot_full_given_a_car_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
