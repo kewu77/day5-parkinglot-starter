@@ -11,4 +11,10 @@ public class ParkingBoy {
             return null;
         return parkingLot.park(car);
     }
+
+    public Car fetch(Ticket ticket) throws ParkingException{
+        if(parkingLot == null)
+            return null;
+        return parkingLot.fetch(ticket);
+    }
 }
