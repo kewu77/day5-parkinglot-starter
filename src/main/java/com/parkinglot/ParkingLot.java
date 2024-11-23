@@ -53,8 +53,8 @@ public class ParkingLot {
         return id;
     }
 
-    public int getMAX_CAPACITY() {
-        return MAX_CAPACITY;
+    public double getParkingSpaceUnderUtilizationRate() {
+        return (double)capacity / (double) MAX_CAPACITY;
     }
 
     public Integer getCapacity() {
