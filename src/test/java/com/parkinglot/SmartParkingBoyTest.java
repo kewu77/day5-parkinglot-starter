@@ -39,4 +39,24 @@ public class SmartParkingBoyTest {
         assertNotNull(secondTicket);
         assertEquals(secondParkingLot.getId(),secondTicket.getParkingLotID());
     }
+
+    @Test
+    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_first_full_second_no_full(){
+        //Given
+        ParkingLot firstParkingLot = new ParkingLot();
+        ParkingLot secondParkingLot = new ParkingLot();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        smartParkingBoy.manage(firstParkingLot);
+        smartParkingBoy.manage(secondParkingLot);
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Ticket firstTicket = smartParkingBoy.park(firstCar);
+        Ticket secondTicket = smartParkingBoy.park(secondCar);
+        //When
+        Car fetchedFirstCar = smartParkingBoy.fetch(firstTicket);
+        Car fetchedSecondCar = smartParkingBoy.fetch(secondTicket);
+        //Then
+        assertEquals(firstCar,fetchedFirstCar);
+        assertEquals(secondCar,fetchedSecondCar);
+    }
 }
