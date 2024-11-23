@@ -40,7 +40,7 @@ public class SmartParkingBoyTest {
     }
 
     @Test
-    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_first_full_second_no_full(){
+    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_two_parking_lot(){
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
