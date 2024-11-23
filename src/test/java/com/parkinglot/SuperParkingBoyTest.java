@@ -102,7 +102,7 @@ public class SuperParkingBoyTest {
         SuperParkingBoy superParkingBoy = new SuperParkingBoy();
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
-        for (int i = 0; i <  10 * 2; i++)
+        for (int i = 0; i <  10 + 100; i++)
             superParkingBoy.park(new Car());
         Car lastCar = new Car();
         //When
