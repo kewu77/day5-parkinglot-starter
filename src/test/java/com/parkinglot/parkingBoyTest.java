@@ -94,7 +94,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_second_parking_lot_ticket_when_park_given_a_car_and_two_no_full_parking_lot(){
+    public void should_return_second_parking_lot_ticket_when_park_given_a_car_and_first_full_second_no_full(){
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
@@ -112,7 +112,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_first_parking_lot_ticket_when_park_given_a_car_and_two_parking_lot(){
+    public void should_return_first_parking_lot_ticket_when_park_given_a_car_and_two_no_full_parking_lot(){
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
@@ -128,7 +128,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_first_full_no_full_second(){
+    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_first_full_second_no_full(){
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
