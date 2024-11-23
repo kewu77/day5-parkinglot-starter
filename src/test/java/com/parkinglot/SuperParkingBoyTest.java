@@ -40,4 +40,24 @@ public class SuperParkingBoyTest {
         assertNotNull(thirdTicket);
         assertEquals(secondParkingLot.getId(),thirdTicket.getParkingLotID());
     }
+
+    @Test
+    public void should_return_two_Corresponding_cars_when_park_given_two_ticket_and_two_parking_lot(){
+        //Given
+        ParkingLot firstParkingLot = new ParkingLot(10);
+        ParkingLot secondParkingLot = new ParkingLot(100);
+        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        superParkingBoy.manage(firstParkingLot);
+        superParkingBoy.manage(secondParkingLot);
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Ticket firstTicket = superParkingBoy.park(firstCar);
+        Ticket secondTicket = superParkingBoy.park(secondCar);
+        //When
+        Car fetchedFirstCar = superParkingBoy.fetch(firstTicket);
+        Car fetchedSecondCar = superParkingBoy.fetch(secondTicket);
+        //Then
+        assertEquals(firstCar,fetchedFirstCar);
+        assertEquals(secondCar,fetchedSecondCar);
+    }
 }
