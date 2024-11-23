@@ -10,7 +10,7 @@ public class SmartParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingBoy smartParkingBoy = new ParkingBoy(new SmartParkStrategy());
         smartParkingBoy.manage(firstParkingLot);
         smartParkingBoy.manage(secondParkingLot);
         Car car = new Car();
@@ -26,7 +26,7 @@ public class SmartParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingBoy smartParkingBoy = new ParkingBoy(new SmartParkStrategy());
         smartParkingBoy.manage(firstParkingLot);
         smartParkingBoy.manage(secondParkingLot);
         //When
@@ -44,7 +44,7 @@ public class SmartParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingBoy smartParkingBoy = new ParkingBoy(new SmartParkStrategy());
         smartParkingBoy.manage(firstParkingLot);
         smartParkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
@@ -64,7 +64,7 @@ public class SmartParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingBoy smartParkingBoy = new ParkingBoy(new SmartParkStrategy());
         smartParkingBoy.manage(firstParkingLot);
         smartParkingBoy.manage(secondParkingLot);
         Car car = new Car();
@@ -80,7 +80,7 @@ public class SmartParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingBoy smartParkingBoy = new ParkingBoy(new SmartParkStrategy());
         smartParkingBoy.manage(firstParkingLot);
         smartParkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
@@ -98,7 +98,7 @@ public class SmartParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        ParkingBoy smartParkingBoy = new ParkingBoy(new SmartParkStrategy());
         smartParkingBoy.manage(firstParkingLot);
         smartParkingBoy.manage(secondParkingLot);
         for (int i = 0; i <  10 * 2; i++)

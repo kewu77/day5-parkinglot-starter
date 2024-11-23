@@ -10,7 +10,7 @@ public class SuperParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(100);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        ParkingBoy superParkingBoy = new ParkingBoy(new SuperParkStrategy());
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
         Car car = new Car();
@@ -26,7 +26,7 @@ public class SuperParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(100);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        ParkingBoy superParkingBoy = new ParkingBoy(new SuperParkStrategy());
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
         //When
@@ -45,7 +45,7 @@ public class SuperParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(100);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        ParkingBoy superParkingBoy = new ParkingBoy(new SuperParkStrategy());
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
@@ -65,7 +65,7 @@ public class SuperParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(100);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        ParkingBoy superParkingBoy = new ParkingBoy(new SuperParkStrategy());
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
         Car car = new Car();
@@ -81,7 +81,7 @@ public class SuperParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(100);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        ParkingBoy superParkingBoy = new ParkingBoy(new SuperParkStrategy());
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
@@ -99,7 +99,7 @@ public class SuperParkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot(10);
         ParkingLot secondParkingLot = new ParkingLot(100);
-        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        ParkingBoy superParkingBoy = new ParkingBoy(new SuperParkStrategy());
         superParkingBoy.manage(firstParkingLot);
         superParkingBoy.manage(secondParkingLot);
         for (int i = 0; i <  10 + 100; i++)

@@ -11,7 +11,7 @@ public class parkingBoyTest {
     public void should_return_ticket_when_park_given_a_car_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot,new NoCleverParkStrategy());
         Car car = new Car();
         //When
         Ticket ticket = parkingBoy.park(car);
@@ -23,7 +23,7 @@ public class parkingBoyTest {
     public void should_return_the_car_when_fetch_given_a_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot,new NoCleverParkStrategy());
         Car car = new Car();
         Ticket ticket = parkingBoy.park(car);
         //When
@@ -36,7 +36,7 @@ public class parkingBoyTest {
     public void should_return_two_car_when_park_given_two_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot,new NoCleverParkStrategy());
         Car firstCar = new Car();
         Car SecondCar = new Car();
         Ticket firstTicket = parkingBoy.park(firstCar);
@@ -54,7 +54,7 @@ public class parkingBoyTest {
     public void should_return_error_message_when_fetch_given_a_wrong_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot,new NoCleverParkStrategy());
         Car car = new Car();
         parkingBoy.park(car);
         Ticket wrongTicket = new Ticket();
@@ -67,7 +67,7 @@ public class parkingBoyTest {
     public void should_return_error_message_when_fetch_given_a_used_ticket_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot,new NoCleverParkStrategy());
         Car firstCar = new Car();
         Car SecondCar = new Car();
         Ticket firstTicket = parkingBoy.park(firstCar);
@@ -82,7 +82,7 @@ public class parkingBoyTest {
     public void should_return_error_message_when_parking_lot_full_given_a_car_and_parking_lot(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot,new NoCleverParkStrategy());
         for (int i = 0; i < 10; i++)
             parkingBoy.park(new Car());
         Car lastCar = new Car();
@@ -98,7 +98,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new NoCleverParkStrategy());
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
         for (int i = 0; i < 10; i++)
@@ -116,7 +116,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new NoCleverParkStrategy());
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
         Car car = new Car();
@@ -132,7 +132,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new NoCleverParkStrategy());
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
@@ -155,7 +155,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new NoCleverParkStrategy());
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
         Car car = new Car();
@@ -171,7 +171,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new NoCleverParkStrategy());
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
@@ -189,7 +189,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new NoCleverParkStrategy());
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
         for (int i = 0; i <  10 * 2; i++)

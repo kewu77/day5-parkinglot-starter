@@ -6,22 +6,22 @@ import java.util.Optional;
 
 public class ParkingBoy {
     protected List<ParkingLot> parkingLots = new ArrayList<>();
-    public ParkingBoy() {
+
+    protected ParkStrategy parkStrategy;
+
+    public ParkingBoy(ParkStrategy parkStrategy) {
+        this.parkStrategy = parkStrategy;
     }
 
-    public ParkingBoy(ParkingLot parkingLot) {
-        if(parkingLot != null)
-            this.parkingLots.add(parkingLot);
+    public ParkingBoy(ParkingLot parkingLot, ParkStrategy parkStrategy) {
+        this.parkingLots.add(parkingLot);
+        this.parkStrategy = parkStrategy;
     }
 
     public Ticket park (Car car) throws NoAvailablePositionException{
-        if(parkingLots.size() == 0)
+        if(parkingLots.size() == 0 || parkStrategy == null)
             return null;
-        Optional<ParkingLot> availableParkingLot = parkingLots.stream().filter(ParkingLot::checkParkingCapacity).findFirst();
-        if(availableParkingLot.isPresent())
-            return availableParkingLot.get().park(car);
-        else
-            throw new NoAvailablePositionException();
+        return parkStrategy.park(parkingLots,car);
     }
 
     public Car fetch(Ticket ticket) throws UnrecognizedParkingTicketException{
@@ -34,7 +34,6 @@ public class ParkingBoy {
         else {
             throw new UnrecognizedParkingTicketException();
         }
-
     }
 
     public void manage(ParkingLot parkingLot) {
