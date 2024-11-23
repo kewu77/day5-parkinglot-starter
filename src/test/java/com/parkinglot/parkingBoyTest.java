@@ -83,7 +83,7 @@ public class parkingBoyTest {
         //Given
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        for (int i = 0; i < ParkingLot.MAX_CAPACITY; i++)
+        for (int i = 0; i < 10; i++)
             parkingBoy.park(new Car());
         Car lastCar = new Car();
 
@@ -94,14 +94,14 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_first_parking_lot_ticket_when_park_given_a_car_and_two_no_full_parking_lot(){
+    public void should_return_second_parking_lot_ticket_when_park_given_a_car_and_two_no_full_parking_lot(){
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy();
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
-        for (int i = 0; i < ParkingLot.MAX_CAPACITY; i++)
+        for (int i = 0; i < 10; i++)
             parkingBoy.park(new Car());
         Car car = new Car();
         //When
@@ -112,7 +112,7 @@ public class parkingBoyTest {
     }
 
     @Test
-    public void should_return_second_parking_lot_ticket_when_park_given_a_car_and_two_parking_lot(){
+    public void should_return_first_parking_lot_ticket_when_park_given_a_car_and_two_parking_lot(){
         //Given
         ParkingLot firstParkingLot = new ParkingLot();
         ParkingLot secondParkingLot = new ParkingLot();
@@ -137,7 +137,7 @@ public class parkingBoyTest {
         parkingBoy.manage(secondParkingLot);
         Car firstCar = new Car();
         Ticket firstTicket = parkingBoy.park(firstCar);
-        for (int i = 0; i < ParkingLot.MAX_CAPACITY - 1; i++)
+        for (int i = 0; i <  10 - 1; i++)
             parkingBoy.park(new Car());
         Car secondCar = new Car();
         Ticket secondTicket = parkingBoy.park(secondCar);
@@ -192,7 +192,7 @@ public class parkingBoyTest {
         ParkingBoy parkingBoy = new ParkingBoy();
         parkingBoy.manage(firstParkingLot);
         parkingBoy.manage(secondParkingLot);
-        for (int i = 0; i < ParkingLot.MAX_CAPACITY * 2; i++)
+        for (int i = 0; i <  10 * 2; i++)
             parkingBoy.park(new Car());
         Car lastCar = new Car();
         //When

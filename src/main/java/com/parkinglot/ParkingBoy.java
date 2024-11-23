@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class ParkingBoy {
-    private List<ParkingLot> parkingLots = new ArrayList<>();
+    protected List<ParkingLot> parkingLots = new ArrayList<>();
     public ParkingBoy() {
     }
 

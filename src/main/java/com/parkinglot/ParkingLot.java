@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Random;
 
 public class ParkingLot {
-    public static final int MAX_CAPACITY = 10;
+    private int MAX_CAPACITY = 10;
     public static final String ERROR_TICKET_MESSAGE = "Unrecognized parking ticket";
     public static final String NO_CAPACITY_MESSAGE = "No available position";
 
@@ -15,6 +15,14 @@ public class ParkingLot {
     private Map<Ticket, Car> ticketToCar = new HashMap<>();
 
     private Integer capacity = MAX_CAPACITY;
+
+    public ParkingLot() {
+    }
+
+    public ParkingLot(Integer capacity) {
+        MAX_CAPACITY = capacity;
+        this.capacity = capacity;
+    }
 
     public boolean checkParkingCapacity(){
         return capacity > 0;
@@ -43,5 +51,13 @@ public class ParkingLot {
 
     public Long getId() {
         return id;
+    }
+
+    public int getMAX_CAPACITY() {
+        return MAX_CAPACITY;
+    }
+
+    public Integer getCapacity() {
+        return capacity;
     }
 }

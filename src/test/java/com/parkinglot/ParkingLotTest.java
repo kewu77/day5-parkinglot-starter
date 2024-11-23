@@ -89,7 +89,7 @@ public class ParkingLotTest {
     public void should_return_error_message_when_parking_lot_full_given_a_car(){
         //Given
         ParkingLot parkingLot = new ParkingLot();
-        for (int i = 0; i < ParkingLot.MAX_CAPACITY; i++)
+        for (int i = 0; i < 10; i++)
             parkingLot.park(new Car());
         Car lastCar = new Car();
 
