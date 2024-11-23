@@ -93,4 +93,21 @@ public class SuperParkingBoyTest {
         //Then
         assertThrows(UnrecognizedParkingTicketException.class,() -> superParkingBoy.fetch(firstTicket), UnrecognizedParkingTicketException.ERROR_TICKET_MESSAGE);
     }
+
+    @Test
+    public void should_return_error_message_when_parking_lot_full_given_a_car_and_two_parking_lot(){
+        //Given
+        ParkingLot firstParkingLot = new ParkingLot(10);
+        ParkingLot secondParkingLot = new ParkingLot(100);
+        SuperParkingBoy superParkingBoy = new SuperParkingBoy();
+        superParkingBoy.manage(firstParkingLot);
+        superParkingBoy.manage(secondParkingLot);
+        for (int i = 0; i <  10 * 2; i++)
+            superParkingBoy.park(new Car());
+        Car lastCar = new Car();
+        //When
+        //Then
+        assertThrows(NoAvailablePositionException.class,() -> superParkingBoy.park(lastCar), NoAvailablePositionException.NO_CAPACITY_MESSAGE);
+
+    }
 }
